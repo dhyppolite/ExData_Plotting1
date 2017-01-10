@@ -11,7 +11,7 @@ load_consumption_data <- function()
 plot2 <- function()
 {
   consumption_data <- load_consumption_data();
-  png(filename="plot2.png", width = 800, height=600, units="px")
-  with(consumption_data,plot(dt, as.numeric(Global_active_power), type="l", lwd=1, ylab="Global Active Power (kilowatts)"), xlab="")
+  png(filename="plot2.png", width = 480, height=480, units="px")
+  with(consumption_data,plot(datetime, as.numeric(Global_active_power), type="l", lwd=1, ylab="Global Active Power (kilowatts)"), xlab="")
   dev.off()
 }

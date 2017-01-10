@@ -11,17 +11,17 @@ load_consumption_data <- function()
 plot4 <- function()
 {
   consumption_data <- load_consumption_data();
-  png(filename="plot4.png", width = 800, height=600, units="px")
+  png(filename="plot4.png", width = 480, height=480, units="px")
   par(mfrow=c(2,2))
-  plot(consumption_data$dt, as.numeric(consumption_data$Global_active_power), type="l", lwd=1, ylab="Global Active Power (kilowatts)", xlab="")
-  plot(consumption_data$dt,consumption_data$Voltage, lwd=1, col="black", type="l", ylab="Voltage", xlab="datetime")
+  plot(consumption_data$datetime, as.numeric(consumption_data$Global_active_power), type="l", lwd=1, ylab="Global Active Power (kilowatts)", xlab="")
+  plot(consumption_data$datetime,consumption_data$Voltage, lwd=1, col="black", type="l", ylab="Voltage", xlab="datetime")
   
-  plot(consumption_data$dt, consumption_data$Sub_metering_1,lwd=1, col="black",type="l", ylab="Energy sub metering", xlab="")
-  with(consumption_data, lines(dt, Sub_metering_2,lwd=1, col="red"))
-  with(consumption_data, lines(dt, Sub_metering_3,lwd=1, col="blue"))
-  legend("topright", pch="-", col=c("black", "red", "purple"), legend=c("Sub_metering_1", "Sub_metering_2", "Sub_metering_3"))
+  plot(consumption_data$datetime, consumption_data$Sub_metering_1,lwd=1, col="black",type="l", ylab="Energy sub metering", xlab="")
+  with(consumption_data, lines(datetime, Sub_metering_2,lwd=1, col="red"))
+  with(consumption_data, lines(datetime, Sub_metering_3,lwd=1, col="blue"))
+  legend("topright",bty="n", lty = 1, col=c("black", "red", "purple"), legend=c("Sub_metering_1", "Sub_metering_2", "Sub_metering_3"))
   
-  plot(consumption_data$dt, consumption_data$Global_reactive_power,lwd=1, col="black",type="l", ylab="Global_reactive_power", xlab="datetime")
+  plot(consumption_data$datetime, consumption_data$Global_reactive_power,lwd=1, col="black",type="l", ylab="Global_reactive_power", xlab="datetime")
   
   dev.off()
 }

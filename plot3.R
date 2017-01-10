@@ -11,12 +11,12 @@ load_consumption_data <- function()
 plot3 <- function()
 {
   consumption_data <- load_consumption_data();
-  png(filename="plot3.png", width = 800, height=600, units="px")
-  plot(consumption_data$dt, consumption_data$Sub_metering_1,lwd=1, col="black",type="l", ylab="Energy sub metering", xlab="")
-  with(consumption_data, lines(dt, Sub_metering_2,lwd=1, col="red"))
-  with(consumption_data, lines(dt, Sub_metering_3,lwd=1, col="blue"))
+  png(filename="plot3.png", width = 480, height=480, units="px")
+  plot(consumption_data$datetime, consumption_data$Sub_metering_1,lwd=1, col="black",type="l", ylab="Energy sub metering", xlab="")
+  with(consumption_data, lines(datetime, Sub_metering_2,lwd=1, col="red"))
+  with(consumption_data, lines(datetime, Sub_metering_3,lwd=1, col="blue"))
   
-  legend("topright", pch="-", col=c("black", "red", "purple"), legend=c("Sub_metering_1", "Sub_metering_2", "Sub_metering_3"))
+  legend("topright", lty=1, col=c("black", "red", "purple"), legend=c("Sub_metering_1", "Sub_metering_2", "Sub_metering_3"))
   
   dev.off()
 }

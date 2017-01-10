@@ -8,10 +8,11 @@ load_consumption_data <- function()
   daba <- mutate(filtered_data_by_date, dt = as.POSIXct(strptime(paste(Date, Time), "%d/%m/%Y %H:%M:%S"))) 
 }
 
+
 plot1 <- function()
 {
   consumption_data <- load_consumption_data();
-  png(filename="plot1.png", width = 800, height=600, units="px")
+  png(filename="plot1.png", width = 480, height=480, units="px")
   hist(as.numeric(consumption_data$Global_active_power),
        main="Global Active Power",col="red",
        xlab="Global Active Power (kilowatts)"
